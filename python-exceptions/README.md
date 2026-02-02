@@ -1,0 +1,1 @@
+Tasks about exeptions in Python
