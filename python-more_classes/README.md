@@ -1,0 +1,1 @@
+Tasks about classes in Python
