@@ -1,0 +1,1 @@
+Tasks about inheritance in Python
