@@ -11,5 +11,4 @@ def read_file(filename=""):
     str: The content of the file.
     """
     with open(filename) as f:
-        content = f.read()
-    return content
+        print(f.read(), end="")
