@@ -32,7 +32,7 @@ def fetch_and_save_posts():
             writer = csv.DictWriter(csv_file, fieldnames=field_names)
             writer.writeheader()
             for j in structured_posts:
-                writer.writerow[j]
+                writer.writerow(j)
         print("Posts saved to posts.csv successfully.")
     else:
         print("Failed to fetch posts.")
