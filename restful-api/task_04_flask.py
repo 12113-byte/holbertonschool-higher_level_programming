@@ -3,6 +3,8 @@
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
+
+# In-memory storage
 users = {
     "jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}
     }
@@ -18,13 +20,9 @@ def data():
     return jsonify(list(users.keys()))
 
 
-if __name__ == "__main__":
-    app.run()
-
-
 @app.route("/status")
 def status():
-    return "OK"
+    return jsonify({"status": "OK"})
 
 
 @app.route("/users/<username>")
@@ -41,7 +39,7 @@ def add_user():
     if not data:
         return jsonify({"error": "Invalid JSON"}), 400
 
-    username = data.get("username") if data else None
+    username = data.get("username")
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
@@ -50,3 +48,7 @@ def add_user():
 
     users[username] = data
     return jsonify({"message": "User added", "user": data})
+
+
+if __name__ == "__main__":
+    app.run()
