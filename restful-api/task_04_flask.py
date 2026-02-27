@@ -5,14 +5,12 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 # In-memory storage
-users = {
-    "jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}
-    }
+users = {}
 
 
 @app.route("/")
 def home():
-    return "<p>Welcome to the Flask API!</p>"
+    return jsonify({"message": "Welcome to the Flask API!"})
 
 
 @app.route("/data")
