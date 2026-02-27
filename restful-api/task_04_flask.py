@@ -10,17 +10,17 @@ users = {}
 
 @app.route("/")
 def home():
-    return jsonify({"message": "Welcome to the Flask API!"})
+    return jsonify({"message": "Welcome to the Flask API!"}), 200
 
 
 @app.route("/data")
 def data():
-    return jsonify(list(users.keys()))
+    return jsonify({"users": list(users.keys())}), 200
 
 
 @app.route("/status")
 def status():
-    return jsonify({"status": "OK"})
+    return jsonify({"status": "OK"}), 200
 
 
 @app.route("/users/<username>")
@@ -45,7 +45,7 @@ def add_user():
         return jsonify({"error": "Username already exists"}), 409
 
     users[username] = data
-    return jsonify({"message": "User added", "user": data})
+    return jsonify({"message": "User added", "user": data}), 201
 
 
 if __name__ == "__main__":
