@@ -3,6 +3,7 @@
 from flask import Flask, request, jsonify
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_jwt_extended.exceptions import NoAuthorizationError
 from flask_jwt_extended import (
     JWTManager, create_access_token, jwt_required, get_jwt_identity
 )
@@ -24,6 +25,21 @@ users = {
         "role": "admin"
         }
 }
+
+
+@jwt.unauthorized_loader
+def unauthorized_response(callback):
+    return jsonify({"msg": "Missing Authorization Header"}), 401
+
+
+@jwt.invalid_token_loader
+def invalid_token_response(callback):
+    return jsonify({"msg": "Invalid token"}), 401
+
+
+@jwt.expired_token_loader
+def expired_token_response(jwt_header, jwt_payload):
+    return jsonify({"msg": "Token has expired"}), 401
 
 
 @auth.verify_password
@@ -76,4 +92,4 @@ def admin_only():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port =5000, debug=False)
+    app.run(host="0.0.0.0", port=5000, debug=False)
