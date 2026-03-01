@@ -15,12 +15,12 @@ jwt = JWTManager(app)
 users = {
     "user1": {
         "username": "user1",
-        "password": generate_password_hash("password"),
+        "password": generate_password_hash("password", method="pbkdf2:sha256"),
         "role": "user"
         },
     "admin1": {
         "username": "admin1",
-        "password": generate_password_hash("password"),
+        "password": generate_password_hash("password", method="pbkdf2:sha256"),
         "role": "admin"
         }
 }
