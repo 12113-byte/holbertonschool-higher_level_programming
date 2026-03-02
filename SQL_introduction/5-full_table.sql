@@ -1,10 +1,7 @@
 -- prints dexcription of a table form a database
-SELECT COLUMN_NAME AS Field,
-        COLUMN_TYPE AS Type,
-        IS_NULLABLE AS Null,
-        COLUMN_KEY AS Key,
-        COLUMN_DEFAULT AS Default,
-        EXTRA AS Extra
-FROM INFORMATION_SCHEMA.COLUMNS
-WHERE TABLE_SCHEMA = DATABASE()
-    AND TABLE_NAME = 'first_table'; -- current database passed as argument
+CREATE TABLE IF NOT EXISTS first_table (
+    id iNT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(128) DEFAULT NULL,
+    c CHAR(1) DEFAULT NULL,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
