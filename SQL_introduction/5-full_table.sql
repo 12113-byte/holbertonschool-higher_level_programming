@@ -1,5 +1,5 @@
 -- prints dexcription of a table form a database
-first_table CREATE TABLE`first_table`(
+CREATE TABLE`first_table`(
 `id` int NOT NULL AUTO_INCREMENT,
 `name`varchar(128) DEFAULT NULL,
 `c`char(1) DEFAULT NULL,
