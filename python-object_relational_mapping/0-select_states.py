@@ -11,11 +11,19 @@ db_user = sys.argv[1]
 db_password = sys.argv[2]
 db_table = sys.argv[3]
 
-# simple database connection script, assuming for localhost connection port 3306
-conn = MySQLdb.connect(host="localhost", port=3306, user=db_user, passwd=db_password, db=db_table, charset="utf8")
+# simple database connection script
+# localhost connection port 3306
+conn = MySQLdb.connect(
+    host="localhost",
+    port=3306,
+    user=db_user,
+    passwd=db_password,
+    db=db_table,
+    charset="utf8"
+    )
 cur = conn.cursor()
 # execute sql query on target database
-cur.execute("SELECT * FROM states ORDER BY id ASC") # HERE I have to know SQL to grab all states in my database
+cur.execute("SELECT * FROM states ORDER BY id ASC")
 # retrieving results as query_rows
 query_rows = cur.fetchall()
 # printing each row in query_rows e.g. results of db connection
