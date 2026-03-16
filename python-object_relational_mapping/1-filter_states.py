@@ -23,7 +23,7 @@ conn = MySQLdb.connect(
     )
 cur = conn.cursor()
 # execute sql query on target database
-cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+cur.execute("SELECT * FROM states WHERE name LIKE 'N' ORDER BY id ASC")
 # retrieving results as query_rows
 query_rows = cur.fetchall()
 # printing each row in query_rows e.g. results of db connection
