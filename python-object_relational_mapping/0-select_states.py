@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # importing dependencies sysarg, mysql connector
 import sys
-from MySQLdb
+import MySQLdb
 # taking in args, assigning variables
 db_user = sys.argv[1]
 db_password = sys.argv[2]
