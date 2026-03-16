@@ -1,17 +1,21 @@
 #!/usr/bin/python3
-
+# importing dependencies sysarg, mysql connector
 import sys
-from sqlalchemy as db
-
+from MySQLdb
+# taking in args, assigning variables
 db_user = sys.argv[1]
 db_password = sys.argv[2]
 db_table = sys.argv[3]
 
-# simple database connection script
-engine = db.create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(db_user, db_password, db_table), pool_pre_ping=True)
-Base.metadata.create_all(engine)
-
-session = Session(engine)
-for state in session.query(State).order_by(State.id).all(): # HERE: no SQL query, only objects!
-    print("{}: {}".format(state.id, state.name))
-session.close()
+# simple database connection script, assuming for localhost connection port 3306
+conn = MySQLdb.connect(host="localhost", port=3306, user=db_user, passwd=db_password, db=db_table, charset="utf8")
+cur = conn.cursor()
+# execute sql query on target database
+cur.execute("SELECT * FROM states ORDER BY id ASC") # HERE I have to know SQL to grab all states in my database
+# retrieving results as query_rows
+query_rows = cur.fetchall()
+# printing each row in query_rows e.g. results of db connection
+for row in query_rows:
+    print(row)
+cur.close()
+conn.close()
