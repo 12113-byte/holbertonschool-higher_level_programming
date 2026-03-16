@@ -3,9 +3,9 @@
 import sys
 import MySQLdb
 # taking in args, assigning variables
-db_user = sys.argv[1]
-db_password = sys.argv[2]
-db_table = sys.argv[3]
+db_user = sys.argv[0]
+db_password = sys.argv[1]
+db_table = sys.argv[2]
 
 # simple database connection script, assuming for localhost connection port 3306
 conn = MySQLdb.connect(host="localhost", port=3306, user=db_user, passwd=db_password, db=db_table, charset="utf8")
