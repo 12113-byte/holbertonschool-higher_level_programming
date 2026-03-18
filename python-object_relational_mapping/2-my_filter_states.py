@@ -31,9 +31,9 @@ if __name__ == "__main__":
     cur = conn.cursor()
     # execute sql query on target database
     cur.execute(
-        "SELECT *"
-        "FROM states"
-        "WHERE name = '{}'"
+        "SELECT * "
+        "FROM states "
+        "WHERE name = '{}' "
         "ORDER BY id ASC".format(find_state)
         )
     # retrieving results as query_rows
