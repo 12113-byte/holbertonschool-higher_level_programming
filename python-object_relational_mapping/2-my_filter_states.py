@@ -8,7 +8,9 @@ if __name__ == "__main__":
 
     # taking in args, assigning variables
     if len(sys.argv) != 5:
-        print(f"Usage: {sys.argv[0]} <db_user> <db_password> <db_name> <state>")
+        print(
+            f"Usage: {sys.argv[0]} <db_user> <db_password> <db_name> <state>"
+            )
         sys.exit(1)
 
     db_user = sys.argv[1]
@@ -28,7 +30,12 @@ if __name__ == "__main__":
         )
     cur = conn.cursor()
     # execute sql query on target database
-    cur.execute("SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(find_state))
+    cur.execute(
+        "SELECT *"
+        "FROM states"
+        "WHERE name = '{}'"
+        "ORDER BY id ASC".format(find_state)
+        )
     # retrieving results as query_rows
     query_rows = cur.fetchall()
     # printing each row in query_rows e.g. results of db connection
