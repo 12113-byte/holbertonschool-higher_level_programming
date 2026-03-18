@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Lists all states where name matches the argument"""
 # importing dependencies sysarg, mysql connector
 import sys
 import MySQLdb
