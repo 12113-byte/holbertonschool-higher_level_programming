@@ -42,6 +42,6 @@ if __name__ == "__main__":
     query_rows = cur.fetchall()
     # printing each row in query_rows e.g. results of db connection
     for row in query_rows:
-        print(row)
+        print(", ".join([row[0] for row in query_rows]))
     cur.close()
     conn.close()
