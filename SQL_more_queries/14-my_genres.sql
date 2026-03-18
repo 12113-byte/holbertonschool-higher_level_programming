@@ -1,6 +1,7 @@
--- importing database dump
-SELECT tv_genres.name AS genre, COUNT(tv_show_genres.genre_id) AS number_of_shows
-FROM tv_genres
-INNER JOIN tv_show_genres ON tv_genres.id = tv_show_genres.genre_id
-GROUP BY genre
-ORDER BY number_of_shows DESC;
+-- importing database dump and list all genres of the show 'Dexter'
+SELECT tv_genres.name AS name
+FROM tv_shows
+INNER JOIN tv_show_genres ON tv_shows.id = tv_show_genres.tv_show_id
+INNER JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
+WHERE tv_shows.title = 'Dexter'
+ORDER BY name ASC;
