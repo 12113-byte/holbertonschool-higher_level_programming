@@ -1,0 +1,17 @@
+{% include 'header.html' %}
+
+{% block content %}
+<h1>Items List</h1>
+<ul>
+    {% if not items %}
+    <p>No items found!</p>
+    {% endif %}
+    {% for item in items %}
+    <li>
+        {{ item }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% include 'footer.html' %}
